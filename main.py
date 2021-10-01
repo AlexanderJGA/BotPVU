@@ -754,8 +754,6 @@ async def pvp(ctx, *, pp):
 	atk = 0
 	defet = 0
 	hitp = 0
-	print(lista)
-	print(img)
 
 	if int(lista[0]) == 1:
 		Base = ':seedling: Plant'
@@ -1750,7 +1748,6 @@ async def Ssunbox(ctx):
 	pol = random.randrange(10001)
 	diviv = pol / 100
 	imggg = "https://marketplace.plantvsundead.com/_nuxt/img/wish-list-1.ba5c877.png"
-	print(diviv)
 	if diviv <= 30.00:
 		premio = "100 x Water :droplet: \n 20 x Scarecrows :farmer:"
 		imggg = "https://marketplace.plantvsundead.com/_nuxt/img/gift-water-100.d9e8d74.png"
