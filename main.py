@@ -8,7 +8,7 @@ import requests
 
 bot = commands.Bot(command_prefix='>')
 
-TOKEN = "ODkwOTg5NjM1OTMxNjE1MzAz.YU30wg.765Y_2_gsqusE0ood78VthTKzKU"
+TOKEN = "SU-TOKEN"
 
 @bot.command()
 async def search(ctx, *, pp):
