@@ -21,7 +21,6 @@ async def help(ctx):
 
 @bot.command()
 async def search(ctx, *, id):
-	print(f"han echo una busqueda ID: {id}")
 	nume = id
 	lista = [int(a) for a in str(nume)]
 	img = (f'{lista[3]}{lista[4]}')
