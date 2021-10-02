@@ -6,13 +6,23 @@ import random
 from bs4 import BeautifulSoup
 import requests
 
-bot = commands.Bot(command_prefix='>')
+bot = commands.Bot(command_prefix='>', help_command=None)
 
-TOKEN = "SU-TOKEN"
+TOKEN = "TOKEN"
 
 @bot.command()
-async def search(ctx, *, pp):
-	nume = pp
+async def help(ctx):
+	lol = random.randrange(40)
+	loll = random.randrange(4)
+	embed = discord.Embed(title="Commands", description=">seach <id> \n >pvp <id> \n >clm <Climate>-<Element> \n >price *Shows the price of the PVU* \n >Ssunbox *Entertainment*", color=discord.Colour.orange())
+	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
+	embed.set_footer(text="Created by @AlexanderJGA#0399")
+	await ctx.send(embed=embed)
+
+@bot.command()
+async def search(ctx, *, id):
+	print(f"han echo una busqueda ID: {id}")
+	nume = id
 	lista = [int(a) for a in str(nume)]
 	img = (f'{lista[3]}{lista[4]}')
 	rrr = (f'{lista[6]}{lista[7]}')
@@ -742,8 +752,8 @@ async def search(ctx, *, pp):
 	await ctx.send(embed=embed)
 
 @bot.command()
-async def pvp(ctx, *, pp):
-	nume = pp
+async def pvp(ctx, *, id):
+	nume = id
 	lista = [int(a) for a in str(nume)]
 	img = (f'{lista[3]}{lista[4]}')
 	rrr = (f'{lista[6]}{lista[7]}')
