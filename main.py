@@ -14,13 +14,24 @@ TOKEN = "TOKEN"
 async def help(ctx):
 	lol = random.randrange(40)
 	loll = random.randrange(4)
-	embed = discord.Embed(title="Commands", description=">seach <id> \n >pvp <id> \n >clm <Climate>-<Element> \n >price *Shows the price of the PVU* \n >Ssunbox *Entertainment*", color=discord.Colour.orange())
+	embed = discord.Embed(title="Commands", description=">seach *id* \n >pvp *id* \n >clm *Climate*-*Element* \n >price *Shows the price of the PVU* \n >Ssunbox *Entertainment* \n >donation *Info on how to donate*", color=discord.Colour.orange())
 	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
 
 @bot.command()
+async def donation(ctx):
+	lol = random.randrange(40)
+	loll = random.randrange(4)
+	embed = discord.Embed(title="Donation", description="ayudenme a comprar un nuevo teclado :,C", color=discord.Colour.random())
+	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
+	embed.add_field(name="Accounts", value="Binance: gomezalcides@gmail.com \n Metamask *solo BNB*: 0x958aF1930D24291F9A17c8cE44f40CCA87B9F09c")
+	embed.set_footer(text="Created by @AlexanderJGA#0399")
+	await ctx.send(embed=embed)
+
+@bot.command()
 async def search(ctx, *, id):
+	print(f"han echo una busqueda ID: {id}")
 	nume = id
 	lista = [int(a) for a in str(nume)]
 	img = (f'{lista[3]}{lista[4]}')
@@ -1782,6 +1793,7 @@ async def Ssunbox(ctx):
 	await ctx.send(embed=embed)
 
 @bot.command()
+@commands.has_permissions(administrator=True)
 async def price(ctx):
 	url = requests.get("https://coinmarketcap.com/currencies/plantvsundead/")
 	soup = BeautifulSoup(url.content, "html.parser")
