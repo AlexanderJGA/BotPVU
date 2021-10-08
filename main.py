@@ -14,24 +14,29 @@ TOKEN = "TOKEN"
 async def help(ctx):
 	lol = random.randrange(40)
 	loll = random.randrange(4)
-	embed = discord.Embed(title="Commands", description=">seach *id* \n >pvp *id* \n >clm *Climate*-*Element* \n >price *Shows the price of the PVU* \n >Ssunbox *Entertainment* \n >donation *Info on how to donate*", color=discord.Colour.orange())
+	embed = discord.Embed(title="Commands", description=">seach *id* \n >pvp *id* \n >clm *Climate*-*Element* \n >price *Shows the price of the PVU* \n >contracts *Important information* \n >Ssunbox *Entertainment* \n >donation *Info on how to donate*", color=discord.Colour.orange())
 	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
 
 @bot.command()
 async def donation(ctx):
-	lol = random.randrange(40)
-	loll = random.randrange(4)
-	embed = discord.Embed(title="Donation", description="ayudenme a comprar un nuevo teclado :,C", color=discord.Colour.random())
-	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
-	embed.add_field(name="Accounts", value="Binance: gomezalcides@gmail.com \n Metamask *solo BNB*: 0x958aF1930D24291F9A17c8cE44f40CCA87B9F09c")
+	embed = discord.Embed(title=":inbox_tray: Donation :gift:", description="la donación les dara un rol VIP permanente, el rol VIP \n servira para comandos exclusivos mas adelante :thumbup:", color=discord.Colour.random())
+	embed.add_field(name="Thanks to :heart:", value="tanhunter254. :heart:")
+	embed.add_field(name="Accounts", value="Binance: gomezalcides@gmail.com \n Metamask *solo BNB*: 0x9656e9a5d8492CFD08Ec50bcAc0e5087200B4bb0")
+	embed.set_footer(text="Created by @AlexanderJGA#0399")
+	await ctx.send(embed=embed)
+
+@bot.command()
+async def contracts(ctx):
+	embed = discord.Embed(title=":clipboard: Information :newspaper:", description=":fox: **Metamask**: \n Network name: Smart Chain \n New RPC URL: https://bsc-dataseed.binance.org/ \n ChainID: 56 \n Symbol: BNB \n Block Explorer URL: https://bscscan.com", color=discord.Colour.blue())
+	embed.add_field(name=":bookmark_tabs: PVU Token", value="Contract: 0x31471e0791fcdbe82fbf4c44943255e923f1b794", inline=False)
+	embed.add_field(name=":bookmark_tabs: Contract Seed", value="Contract: 0x5ab19e7091dd208f352f8e727b6dcc6f8abb6275 \n Name: Seed \n Decimals: 0", inline=False)
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
 
 @bot.command()
 async def search(ctx, *, id):
-	print(f"han echo una busqueda ID: {id}")
 	nume = id
 	lista = [int(a) for a in str(nume)]
 	img = (f'{lista[3]}{lista[4]}')
@@ -1779,12 +1784,15 @@ async def Ssunbox(ctx):
 	elif diviv <= 90.00:
 		premio = "1 x Sunflower sapling :potted_plant:"
 		qqqqq = ":neutral_face: 30"
+		imgggg = "https://media.discordapp.net/attachments/892940152723365918/895988488405651466/sapling.png?width=140&height=140"
 	elif diviv <= 99.90:
 		premio = "1 x Sunflower mama :sunflower:"
 		qqqqq = ":open_mouth: 9.9"
+		imgggg = "https://media.discordapp.net/attachments/892940152723365918/895988898650529792/mama.png?width=140&height=140"
 	elif diviv >= 100.00:
 		premio = "1 x Seed :seedling:"
 		qqqqq = ":partying_face: 0.1"
+		imgggg = "https://media.discordapp.net/attachments/890990081777729571/895818063813959690/seed.png?width=85&height=102"
 
 	embed = discord.Embed(title=":gift: Sunbox :gift:", description=f"{premio}", color=discord.Colour.dark_purple())
 	embed.set_thumbnail(url=f"{imggg}")
@@ -1800,7 +1808,7 @@ async def price(ctx):
 	resultadoo = soup.find("div", {"class":"priceValue"})
 	preciop = resultadoo.text
 
-	embed = discord.Embed(title=":bar_chart: Price", description=f":four_leaf_clover: PVU = {preciop}", color=discord.Colour.gold())
+	embed = discord.Embed(title=":bar_chart: Price", description=f":four_leaf_clover: PVU = {preciop} \n :large_blue_diamond: LE 550 = PVU 1 :four_leaf_clover: \n :four_leaf_clover: PVU 1 = LE 105 :large_blue_diamond:", color=discord.Colour.gold())
 	embed.set_thumbnail(url="https://i.imgur.com/G2LpD8E.png")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
