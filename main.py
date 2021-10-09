@@ -14,7 +14,7 @@ TOKEN = "TOKEN"
 async def help(ctx):
 	lol = random.randrange(40)
 	loll = random.randrange(4)
-	embed = discord.Embed(title="Commands", description=">seach *id* \n >pvp *id* \n >clm *Climate*-*Element* \n >price *Shows the price of the PVU* \n >contracts *Important information* \n >Ssunbox *Entertainment* \n >donation *Info on how to donate*", color=discord.Colour.orange())
+	embed = discord.Embed(title="Commands", description=">search *ID* \n >pvp *ID* \n >clm *Climate*-*Element* \n >price *Shows the price of the PVU* \n >offer *ID and Price* \n >contracts *Important information* \n >Ssunbox *Entertainment* \n >donation *Info on how to donate*", color=discord.Colour.orange())
 	embed.set_thumbnail(url=f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{lol}_{loll}.png")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
@@ -1366,7 +1366,17 @@ async def pvp(ctx, *, id):
 		
 	elif int(img) == 36:
 		Plant = ':droplet: Water'
-
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 55 + sum
+		if int(lista[5]) == 3:
+			att3 = 600
 		
 	elif int(img) == 38:
 		Plant = ':droplet: Water'
@@ -1810,6 +1820,1304 @@ async def price(ctx):
 
 	embed = discord.Embed(title=":bar_chart: Price", description=f":four_leaf_clover: PVU = {preciop} \n :large_blue_diamond: LE 550 = PVU 1 :four_leaf_clover: \n :four_leaf_clover: PVU 1 = LE 105 :large_blue_diamond:", color=discord.Colour.gold())
 	embed.set_thumbnail(url="https://i.imgur.com/G2LpD8E.png")
+	embed.set_footer(text="Created by @AlexanderJGA#0399")
+	await ctx.send(embed=embed)
+
+@bot.command()
+async def offer(ctx, id, price):
+	balance = float(price)
+	nume = id
+	lista = [int(a) for a in str(nume)]
+	img = (f'{lista[3]}{lista[4]}')
+	rrr = (f'{lista[6]}{lista[7]}')
+	num = 0
+	att1 = 0
+	att2 = 0
+	att3 = 0
+	att4 = 0
+	atk = 0
+	defet = 0
+	hitp = 0
+	vrg = None
+
+	if int(lista[0]) == 1:
+		Base = ':seedling: Plant'
+	elif int(lista[0]) == 2:
+		Base = ':evergreen_tree: Mother Tree'
+
+	if int(lista[5]) == 1:
+		rr = 1
+		rareza = ":green_circle: Common"
+
+	if int(lista[5]) == 2:
+		if int(rrr) <= 88:
+			rareza = ":blue_circle: Uncommun"
+		else:
+			rareza = ":red_circle: Rare"
+		rr = 2
+
+	if int(lista[5]) == 3:
+		rr = 3
+		rareza = ":purple_circle: Mysthic"
+
+	if int(lista[0]) == 1:
+		hh = (f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/{img}_{rr}.png")
+		opp = ("https://marketplace.plantvsundead.com/farm#/plant/")
+	else:
+		hh = (f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/mtree/{img}_{rr}.png")
+		opp = ("https://marketplace.plantvsundead.com/farm#/mother-tree/")
+
+	if int(img) == 18:
+		Plant = ':sunny: Light'
+		if int(lista[5]) == 1:
+			num = 1200 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1250 + int(rrr)
+			else:
+				num = 1311 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1401 + int(rrr)
+		prd = 240
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 80 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 145
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 19:
+		Plant = ':sunny: Light'
+		if int(lista[5]) == 1:
+			num = 1200 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1250 + int(rrr)
+			else:
+				num = 1311 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1401 + int(rrr)
+		prd = 240
+		if int(lista[5]) == 1:
+			att3 = 150 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 100 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = sum - 145
+		if int(lista[5]) == 3:
+			att3 = 400
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 20:
+		Plant = ':sunny: Light'
+		if int(lista[5]) == 1:
+			num = 1600 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1650 + int(rrr)
+			else:
+				num = 1711 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1901 + int(rrr)
+		prd = 312
+		if int(lista[5]) == 1:
+			att1 = 1000 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att1 = 1000 + sum
+			else:
+				sum = int(rrr) * 10
+				att1 = 650 + sum
+		if int(lista[5]) == 3:
+			att1 = 2000
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 21:
+		Plant = ':sunny: Light'
+		if int(lista[5]) == 1:
+			num = 1600 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1650 + int(rrr)
+			else:
+				num = 1711 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1901 + int(rrr)
+		prd = 312
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 100 + sum
+			else:
+				att3 = 574 + int(rrr)
+		if int(lista[5]) == 3:
+			att3 = 750
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 91:
+		Plant = ':sunny: Light'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 5
+				num = 1400 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				num = 1450 + sum
+			else:
+				sum = int(rrr) * 5
+				num = 1495 + sum
+		if int(lista[5]) == 3:
+			num = 2120
+		prd = 240
+		atk = 125
+		defet = 300
+		if int(lista[5]) == 1:
+			sum = int(rrr) * 100
+			hitp = 15000 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 200
+				hitp = 9000 + sum
+			else:
+				sum = int(rrr) * 500
+				hitp = sum - 15500
+		if int(lista[5]) == 3:
+			hitp = 37500
+		vrg = (f"ATK :yellow_square: {atk} \n DEF :shield: {defet} \n HP :heart: {hitp}")
+		poo = num / prd
+		
+
+	elif int(img) == 00:
+		Plant = ':fire: Fire'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/0_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 440 + int(rrr)
+			else:
+				num = 511 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 701 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att1 = 1000 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				att1 = 650 + sum
+			else:
+				sum = int(rrr) * 10
+				att1 = 650 + sum
+		if int(lista[5]) == 3:
+			att1 = 2000
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 1:
+		Plant = ':fire: Fire'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/1_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 440 + int(rrr)
+			else:
+				num = 511 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 701 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 100 + sum
+			else:
+				att3 = 574 + int(rrr)
+		if int(lista[5]) == 3:
+			att3 = 750
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 7:
+		Plant = ':fire: Fire'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/7_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 440 + int(rrr)
+			else:
+				num = 511 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 701 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att1 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 280 + sum
+			else:
+				att1 = 415 + int(rrr)
+		if int(lista[5]) == 3:
+			att1 = 650
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 17:
+		Plant = ':fire: Fire'
+		if int(lista[5]) == 1:
+			num = 650 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 700 + int(rrr)
+			else:
+				num = 811 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1001 + int(rrr)
+		prd = 72
+		if int(lista[5]) == 1:
+			att1 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 280 + sum
+			else:
+				att1 = 415 + int(rrr)
+		if int(lista[5]) == 3:
+			att1 = 650
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 30:
+		Plant = ':fire: Fire'
+		if int(lista[5]) == 1:
+			num = 650 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 700 + int(rrr)
+			else:
+				num = 811 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1001 + int(rrr)
+		prd = 72
+		if int(lista[5]) == 1:
+			att1 = 1000 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				att1 = 650 + sum
+			else:
+				sum = int(rrr) * 10
+				att1 = 650 + sum
+		if int(lista[5]) == 3:
+			att1 = 2000
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 90:
+		Plant = ':fire: Fire'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 5
+				num = 750 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				num = 800 + sum
+			else:
+				sum = int(rrr) * 5
+				num = 855 + sum
+		if int(lista[5]) == 3:
+			num = 1500
+		prd = 48
+		atk = 200
+		defet = 200
+		if int(lista[5]) == 1:
+			sum = int(rrr) * 100
+			hitp = 10000 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 200
+				hitp = 8000 + sum
+			else:
+				sum = int(rrr) * 500
+				hitp = sum - 17000
+		if int(lista[5]) == 3:
+			hitp = 35000
+		vrg = (f"ATK :yellow_square: {atk} \n DEF :shield: {defet} \n HP :heart: {hitp}")
+		poo = num / prd
+		
+	elif int(img) == 33:
+		Plant = ':spades: Dark'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 10:
+				sum = int(rrr) * 10
+				num = 1400 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 1500 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 1610 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 1810 + sum
+		prd = 216
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 2800
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 35:
+		Plant = ':spades: Dark'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 10:
+				sum = int(rrr) * 10
+				num = 1400 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 1500 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 1610 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 1810 + sum
+		prd = 216
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 380 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 155 + sum
+		if int(lista[5]) == 3:
+			att3 = 2800
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 14:
+		Plant = ':spades: Dark'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 10:
+				sum = int(rrr) * 10
+				num = 1200 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 1300 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 1410 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 1510 + sum
+		prd = 192
+		if int(lista[5]) == 1:
+			iii = int(rrr) / 1000
+			pppp = 0.200 + iii
+			att2 = float(pppp)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				iii = int(rrr) / 1000
+				bbb = iii * 2
+				pppp = 0.180 + bbb
+				att2 = float(pppp)
+			else:
+				iii = int(rrr) / 1000
+				bbb = iii * 5
+				pppp = bbb - 0.045
+				att2 = float(pppp)
+		if int(lista[5]) == 3:
+			att2 = 0.5
+		vrg = (f"Loss... :red_square: {round(att2,3)}")
+		poo = num / prd
+
+	elif int(img) == 31:
+		Plant = ':spades: Dark'
+		if int(lista[5]) == 1:
+			sum = int(rrr) * 10
+			num = 1200 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 1300 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 1410 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 1510 + sum
+		prd = 192
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 100 + sum
+			else:
+				sum = int(rrr) * 10
+				att3 = sum - 290
+		if int(lista[5]) == 3:
+			att3 = 2500
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 93:
+		Plant = ':spades: Dark'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 5
+				num = 2600 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				num = 2650 + sum
+			else:
+				sum = int(rrr) * 5
+				num = 2705 + sum
+		if int(lista[5]) == 3:
+			num = 3300
+		prd = 216
+		atk = 400
+		defet = 100
+		if int(lista[5]) == 1:
+			sum = int(rrr) * 50
+			hitp = 7500 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 100
+				hitp = 5000 + sum
+			else:
+				sum = int(rrr) * 500
+				hitp = sum - 29500
+		if int(lista[5]) == 3:
+			hitp = 25000
+		vrg = (f"ATK :yellow_square: {atk} \n DEF :shield: {defet} \n HP :heart: {hitp}")
+		poo = num / prd
+		
+	elif int(img) == 34:
+		Plant = ':zap: Electro'
+		if int(lista[5]) == 1:
+			num = 650 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 700 + int(rrr)
+			else:
+				num = 811 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1001 + int(rrr)
+		prd = 60
+		if int(lista[5]) == 1:
+			iii = int(rrr) / 1000
+			pppp = 0.200 + iii
+			att2 = float(pppp)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				iii = int(rrr) / 1000
+				bbb = iii * 2
+				pppp = 0.180 + bbb
+				att2 = float(pppp)
+			else:
+				iii = int(rrr) / 1000
+				bbb = iii * 5
+				pppp = bbb - 0.045
+				att2 = float(pppp)
+		if int(lista[5]) == 3:
+			att2 = 0.5
+		vrg = (f"Loss... :red_square: {round(att2,3)}")
+		poo = num / prd
+
+	elif int(img) == 32:
+		Plant = ':zap: Electro'
+		if int(lista[5]) == 1:
+			num = 650 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 700 + int(rrr)
+			else:
+				num = 811 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1001 + int(rrr)
+		prd = 60
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 250 + sum
+			else:
+				sum = int(rrr) * 10
+				att3 = sum - 90
+		if int(lista[5]) == 3:
+			att3 = 1000
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 8:
+		Plant = ':zap: Electro'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/8_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 500 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 550 + int(rrr)
+			else:
+				num = 591 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 751 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 80 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 145
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 3:
+		Plant = ':zap: Electro'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/3_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 500 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 550 + int(rrr)
+			else:
+				num = 591 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 751 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 80 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 145
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 15:
+		Plant = ':zap: Electro'
+		if int(lista[5]) == 1:
+			num = 500 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 550 + int(rrr)
+			else:
+				num = 591 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 751 + int(rrr)
+		prd = 48
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 380 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 155 + sum
+		if int(lista[5]) == 3:
+			att3 = 700
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 29:
+		Plant = ':snowflake: Ice'
+		if int(lista[5]) == 1:
+			num = 800 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 850 + int(rrr)
+			else:
+				num = 911 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 96
+		if int(lista[5]) == 1:
+			att3 = 150 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 100 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = sum - 145
+		if int(lista[5]) == 3:
+			att3 = 400
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 2:
+		Plant = ':snowflake: Ice'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/2_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 500 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 550 + int(rrr)
+			else:
+				num = 591 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 751 + int(rrr)
+		prd = 60
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 250 + sum
+			else:
+				sum = int(rrr) * 10
+				att3 = sum - 90
+		if int(lista[5]) == 3:
+			att3 = 1000
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 6:
+		Plant = ':snowflake: Ice'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/6_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 500 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 550 + int(rrr)
+			else:
+				num = 591 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 751 + int(rrr)
+		prd = 60
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 150 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 55 + sum
+		if int(lista[5]) == 3:
+			att3 = 600
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 92:
+		Plant = ':snowflake: Ice'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 5
+				num = 1050 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				num = 1100 + sum
+			else:
+				sum = int(rrr) * 5
+				num = 1155 + sum
+		if int(lista[5]) == 3:
+			num = 1800
+		prd = 96
+		atk = 150
+		defet = 400
+		if int(lista[5]) == 1:
+			sum = int(rrr) * 50
+			hitp = 10000 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 100
+				hitp = 7500 + sum
+			else:
+				sum = int(rrr) * 500
+				hitp = sum - 27000
+		if int(lista[5]) == 3:
+			hitp = 25000
+		vrg = (f"ATK :yellow_square: {atk} \n DEF :shield: {defet} \n HP :heart: {hitp}")
+		poo = num / prd
+		
+	elif int(img) == 24:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 1300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1350 + int(rrr)
+			else:
+				num = 1411 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1551 + int(rrr)
+		prd = 168
+		if int(lista[5]) == 1:
+			iii = int(rrr) / 1000
+			pppp = 0.200 + iii
+			att2 = float(pppp)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				iii = int(rrr) / 1000
+				bbb = iii * 2
+				pppp = 0.180 + bbb
+				att2 = float(pppp)
+			else:
+				iii = int(rrr) / 1000
+				bbb = iii * 5
+				pppp = bbb - 0.045
+				att2 = float(pppp)
+		if int(lista[5]) == 3:
+			att2 = 0.5
+		vrg = (f"Loss... :red_square: {round(att2,3)}")
+		poo = num / prd
+
+	elif int(img) == 23:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 1300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1350 + int(rrr)
+			else:
+				num = 1411 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1551 + int(rrr)
+		prd = 168
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 350
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 22:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 1300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1350 + int(rrr)
+			else:
+				num = 1411 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1551 + int(rrr)
+		prd = 168
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 5
+				att3 = 250 + sum
+			else:
+				sum = int(rrr) * 10
+				att3 = sum - 90
+		if int(lista[5]) == 3:
+			att3 = 1000
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 12:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 900 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 950 + int(rrr)
+			else:
+				num = 1011 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 120
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 13:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 900 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 950 + int(rrr)
+			else:
+				num = 1011 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 120
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 350
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 11:
+		Plant = ':fleur_de_lis: Parasite'
+		if int(lista[5]) == 1:
+			num = 900 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 950 + int(rrr)
+			else:
+				num = 1011 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 120
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 350
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 25:
+		Plant = ':gear: Metal'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 10
+				num = 3500 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 3700 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 3910 + sum
+		if int(rrr) == 3:
+			sum = int(rrr) * 10
+			num = 4210 + sum
+		prd = 336
+		if int(lista[5]) == 1:
+			att3 = 400 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 380 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 155 + sum
+		if int(lista[5]) == 3:
+			att3 = 700
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 26:
+		Plant = ':gear: Metal'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 10
+				num = 3500 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 3700 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 3910 + sum
+		if int(rrr) == 3:
+			sum = int(rrr) * 10
+			num = 4210 + sum
+		prd = 336
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 55 + sum
+		if int(lista[5]) == 3:
+			att3 = 600
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 27:
+		Plant = ':gear: Metal'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 10
+				num = 5500 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 5800 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 5910 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 6110 + sum
+		prd = 480
+		if int(lista[5]) == 1:
+			att1 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = 55 + sum
+		if int(lista[5]) == 3:
+			att1 = 650
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 28:
+		Plant = ':gear: Metal'
+		if int(lista[5]) == 1:
+			if int(rrr) >= 0:
+				sum = int(rrr) * 10
+				num = 5500 + sum
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 10
+				num = 5800 + sum
+			else:
+				sum = int(rrr) * 10
+				num = 5910 + sum
+		if int(lista[5]) == 3:
+			sum = int(rrr) * 10
+			num = 6110 + sum
+		prd = 480
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 55 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 195
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 4:
+		Plant = ':droplet: Water'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/4_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 950 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1040 + int(rrr)
+			else:
+				num = 1111 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1301 + int(rrr)
+		prd = 108
+		if int(lista[5]) == 1:
+			iii = int(rrr) / 1000
+			pppp = 0.200 + iii
+			att2 = float(pppp)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				iii = int(rrr) / 1000
+				bbb = iii * 2
+				pppp = 0.180 + bbb
+				att2 = float(pppp)
+			else:
+				iii = int(rrr) / 1000
+				bbb = iii * 5
+				pppp = bbb - 0.045
+				att2 = float(pppp)
+		if int(lista[5]) == 3:
+			att2 = 0.5
+		vrg = (f"Loss... :red_square: {round(att2,3)}")
+		poo = num / prd
+
+	elif int(img) == 5:
+		Plant = ':droplet: Water'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/5_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 950 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1040 + int(rrr)
+			else:
+				num = 1111 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1301 + int(rrr)
+			if int(lista[5]) == 1:
+				att3 = 400 + int(rrr)
+		prd = 108
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 380 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 155 + sum
+		if int(lista[5]) == 3:
+			att3 = 700
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 36:
+		Plant = ':droplet: Water'
+		if int(lista[5]) == 1:
+			num = 950 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1040 + int(rrr)
+			else:
+				num = 1111 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1301 + int(rrr)
+		prd = 108
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 55 + sum
+		if int(lista[5]) == 3:
+			att3 = 600
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 38:
+		Plant = ':droplet: Water'
+		if int(lista[5]) == 1:
+			num = 1050 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1140 + int(rrr)
+			else:
+				num = 1211 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1401 + int(rrr)
+		prd = 120
+		if int(lista[5]) == 1:
+			att1 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 80 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = sum - 145
+		if int(lista[5]) == 3:
+			att1 = 400
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 39:
+		Plant = ':droplet: Water'
+		if int(lista[5]) == 1:
+			num = 1050 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 1140 + int(rrr)
+			else:
+				num = 1211 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1401 + int(rrr)
+		prd = 120
+		if int(lista[5]) == 1:
+			att3 = 100 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 80 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = sum - 145
+		if int(lista[5]) == 3:
+			att3 = 400
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 37:
+		Plant = ':butterfly: Wind'
+		if int(lista[5]) == 1:
+			num = 900 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 950 + int(rrr)
+			else:
+				num = 1011 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 96
+		if int(lista[5]) == 1:
+			att1 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = 55 + sum
+		if int(lista[5]) == 3:
+			att1 = 650
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 16:
+		Plant = ':butterfly: Wind'
+		if int(lista[5]) == 1:
+			num = 900 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 950 + int(rrr)
+			else:
+				num = 1011 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1151 + int(rrr)
+		prd = 96
+		if int(lista[5]) == 1:
+			att3 = 300 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 280 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = 55 + sum
+		if int(lista[5]) == 3:
+			att3 = 600
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	elif int(img) == 10:
+		Plant = ':butterfly: Wind'
+		if int(lista[5]) == 1:
+			num = 750 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 800 + int(rrr)
+			else:
+				num = 861 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1051 + int(rrr)
+		prd = 72
+		if int(lista[5]) == 1:
+			att1 = 350 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att1 = 330 + sum
+			else:
+				sum = int(rrr) * 5
+				att1 = 75 + sum
+		if int(lista[5]) == 3:
+			att1 = 600
+		vrg = (f"Physic :yellow_square: {att1}")
+		poo = num / prd
+
+	elif int(img) == 9:
+		Plant = ':butterfly: Wind'
+		hh = f"https://pvuresources.s3.ap-southeast-2.amazonaws.com/icon/plant/9_{rr}.png"
+		if int(lista[5]) == 1:
+			num = 750 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				num = 800 + int(rrr)
+			else:
+				num = 861 + int(rrr)
+		if int(lista[5]) == 3:
+			num = 1051 + int(rrr)
+		prd = 72
+		if int(lista[5]) == 1:
+			att3 = 150 + int(rrr)
+		if int(lista[5]) == 2:
+			if int(rrr) <= 88:
+				sum = int(rrr) * 2
+				att3 = 100 + sum
+			else:
+				sum = int(rrr) * 5
+				att3 = sum - 145
+		if int(lista[5]) == 3:
+			att3 = 400
+		vrg = (f"Magic :blue_square: {att3}")
+		poo = num / prd
+
+	await ctx.send(f"{opp}{nume}")
+
+	embed = discord.Embed(title="Type", description=f"{Base}", color=discord.Colour.dark_green())
+	embed.set_thumbnail(url=f"{hh}")
+	embed.add_field(name="Element", value=f"{Plant}")
+	embed.add_field(name="Rarity", value=f"{rareza}")
+	embed.add_field(name="Production", value=f":large_blue_diamond: LE: {num}/{prd} HR", inline=False)
+	embed.add_field(name="Stats", value=f"{vrg}",  inline=False)
+	embed.add_field(name=f"Price", value=f":four_leaf_clover: {balance}", inline=True)
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
 
