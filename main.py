@@ -8,7 +8,7 @@ import requests
 
 bot = commands.Bot(command_prefix='>', help_command=None)
 
-TOKEN = "ODkwOTg5NjM1OTMxNjE1MzAz.YU30wg.V05Im11FZR7CAdtTl5IwIeADSYc"
+TOKEN = "TOKEN"
 
 @bot.command()
 async def help(ctx):
