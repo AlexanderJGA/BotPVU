@@ -8,7 +8,7 @@ import requests
 
 bot = commands.Bot(command_prefix='>', help_command=None)
 
-TOKEN = "TOKEN"
+TOKEN = "ODkwOTg5NjM1OTMxNjE1MzAz.YU30wg.V05Im11FZR7CAdtTl5IwIeADSYc"
 
 @bot.command()
 async def help(ctx):
@@ -764,7 +764,13 @@ async def search(ctx, *, id):
 	embed.add_field(name="Production", value=f":large_blue_diamond: LE: {num}/{prd} HR", inline=False)
 	embed.add_field(name="Time-Lapse Production", value=f":large_blue_diamond: LE: {kkk} / HR \n :large_blue_diamond: LE: {aaa} / Day \n :large_blue_diamond: LE: {ooo} / Week \n :large_blue_diamond: LE: {mmm} / Month")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
-	await ctx.send(embed=embed)
+	poul = await ctx.send(embed=embed)
+	await poul.add_reaction("🥳")
+	await poul.add_reaction("👍")
+	await poul.add_reaction("❤️")
+	await poul.add_reaction("👎")
+	await poul.add_reaction("😩")
+	await poul.add_reaction("😮")
 
 @bot.command()
 async def pvp(ctx, *, id):
@@ -1474,7 +1480,13 @@ async def pvp(ctx, *, id):
 	embed.add_field(name="Rarity", value=f"{rareza}")
 	embed.add_field(name="Stats", value=f"{vrg}",  inline=False)
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
-	await ctx.send(embed=embed)
+	poul = await ctx.send(embed=embed)
+	await poul.add_reaction("🥳")
+	await poul.add_reaction("👍")
+	await poul.add_reaction("❤️")
+	await poul.add_reaction("👎")
+	await poul.add_reaction("😩")
+	await poul.add_reaction("😮")
 
 @bot.command()
 async def clm(ctx, *, pp):
@@ -1778,8 +1790,25 @@ async def clm(ctx, *, pp):
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
 
+save = {}
+	
 @bot.command()
 async def Ssunbox(ctx):
+	popl = ctx.author.mention
+	jhj = save.get(popl)
+	if jhj == None: 
+		save[popl] = {
+		"Sx": 1
+		}
+		xd = str(save[popl]["Sx"])
+		hul = (f":bust_in_silhouette: {ctx.author}, Sunbox: {xd} :gift:")
+	else:
+		save[popl]["Sx"] += 1
+		xd = str(save[popl]["Sx"])
+		hul = (f":bust_in_silhouette: {ctx.author}, Sunbox: {xd} :gift:")
+
+	await ctx.send(hul)
+	
 	pol = random.randrange(10001)
 	diviv = pol / 100
 	imggg = "https://marketplace.plantvsundead.com/_nuxt/img/wish-list-1.ba5c877.png"
@@ -1794,15 +1823,15 @@ async def Ssunbox(ctx):
 	elif diviv <= 90.00:
 		premio = "1 x Sunflower sapling :potted_plant:"
 		qqqqq = ":neutral_face: 30"
-		imgggg = "https://media.discordapp.net/attachments/892940152723365918/895988488405651466/sapling.png?width=140&height=140"
+		imggg = "https://i.ibb.co/GFv95NQ/chiquilin.png"
 	elif diviv <= 99.90:
 		premio = "1 x Sunflower mama :sunflower:"
 		qqqqq = ":open_mouth: 9.9"
-		imgggg = "https://media.discordapp.net/attachments/892940152723365918/895988898650529792/mama.png?width=140&height=140"
+		imggg = "https://i.postimg.cc/kMH4bF3P/mama1.png"
 	elif diviv >= 100.00:
 		premio = "1 x Seed :seedling:"
 		qqqqq = ":partying_face: 0.1"
-		imgggg = "https://media.discordapp.net/attachments/890990081777729571/895818063813959690/seed.png?width=85&height=102"
+		imggg = "https://i.postimg.cc/ryRdgY9w/semilla1.png"
 
 	embed = discord.Embed(title=":gift: Sunbox :gift:", description=f"{premio}", color=discord.Colour.dark_purple())
 	embed.set_thumbnail(url=f"{imggg}")
@@ -1811,14 +1840,13 @@ async def Ssunbox(ctx):
 	await ctx.send(embed=embed)
 
 @bot.command()
-@commands.has_permissions(administrator=True)
 async def price(ctx):
 	url = requests.get("https://coinmarketcap.com/currencies/plantvsundead/")
 	soup = BeautifulSoup(url.content, "html.parser")
 	resultadoo = soup.find("div", {"class":"priceValue"})
 	preciop = resultadoo.text
 
-	embed = discord.Embed(title=":bar_chart: Price", description=f":four_leaf_clover: PVU = {preciop} \n :large_blue_diamond: LE 550 = PVU 1 :four_leaf_clover: \n :four_leaf_clover: PVU 1 = LE 105 :large_blue_diamond:", color=discord.Colour.gold())
+	embed = discord.Embed(title=":bar_chart: Price", description=f":four_leaf_clover: PVU = {preciop} \n :large_blue_diamond: LE 605 = PVU 1 :four_leaf_clover: \n :four_leaf_clover: PVU 1 = LE 105 :large_blue_diamond:", color=discord.Colour.gold())
 	embed.set_thumbnail(url="https://i.imgur.com/G2LpD8E.png")
 	embed.set_footer(text="Created by @AlexanderJGA#0399")
 	await ctx.send(embed=embed)
